@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop task</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <h3 class="mainHeadline">Товари</h3>
+        <button id="productBtn" class="productBtn">
+            <span>Замовлення</span>
+            <span class="productCounter" id="productCounter">0</span>
+        </button>
+        <div class="productContainer">
+
+        </div>
+    </div>
+    <div class="popup" id="receipt">
+        <div class="popup__header__group">
+            <p class="popup__text">
+                Name of the store
+            </p>
+            <p class="popup__text">
+                Adress city, adress street, 3
+            </p>
+        </div>
+        <h3 class="popup__text">
+            Goods:
+        </h3>
+        <div class="popup__goods-container">
+
+        </div>
+        <form id="my-form" action="https://formspree.io/f/xpznovyb" method="POST">
+            <div class="popup__form-elements">
+                <label>Message:</label>
+                <input id="receipt__input" type="text" name="message" />
+            </div>
+            <button class="popup__btn" id="my-form-button receipt__btn">Send on email</button>
+            <p id="my-form-status"></p>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        var form = document.getElementById("my-form");
+
+        function formOrder(basketArray) {
+            let str = "";
+            for (let item of basketArray) {
+                str += `id:${item.id}
+                `
+            }
+            return str
+        }
+
+        async function handleSubmit(event) {
+            $('#receipt__input').val(formOrder(basket))
+            event.preventDefault();
+
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                alert('sended')
+                $('#receipt').fadeToggle(300);
+                basket = [];
+                $('#productCounter').html(basket.length)
+                form.reset()
+            })
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
+</body>
+
+</html>
