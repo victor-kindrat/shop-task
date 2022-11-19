@@ -13,7 +13,8 @@ JS. Not real project. Just me trying something new 🥲
 
 #### You can look preview here:
 
-![image](https://user-images.githubusercontent.com/84918090/202845104-b561a824-c303-44f7-ad4f-47b55658f253.png)
+![image](https://user-images.githubusercontent.com/84918090/202862731-d98f069f-fe63-4f30-88e6-b3bf21ad89d3.png)
+
 
 ---
 
