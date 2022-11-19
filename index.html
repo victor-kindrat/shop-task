@@ -27,14 +27,14 @@
     <div class="popup" id="receipt">
         <div class="popup__header__group">
             <p class="popup__text">
-                Name of the store
+                Маркет сіті
             </p>
             <p class="popup__text">
-                Adress city, adress street, 3
+                Місто Львів, вул. Степана Бандери, 92б
             </p>
         </div>
         <h3 class="popup__text">
-            Goods:
+            Товари:
         </h3>
         <div class="popup__goods-container">
 
@@ -44,7 +44,7 @@
                 <label>Message:</label>
                 <input id="receipt__input" type="text" name="message" />
             </div>
-            <button class="popup__btn" id="my-form-button receipt__btn">Send on email</button>
+            <button class="popup__btn" id="my-form-button receipt__btn">Надіслати</button>
             <p id="my-form-status"></p>
         </form>
     </div>
@@ -56,8 +56,7 @@
         function formOrder(basketArray) {
             let str = "";
             for (let item of basketArray) {
-                str += `id:${item.id}
-                `
+                str += `Номер товару: ${item.id},  `
             }
             return str
         }

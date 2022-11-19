@@ -3,7 +3,7 @@ let basket = [];
 let countOfElements = 278;
 
 for (let i = 1; i < countOfElements; i++) {
-    $('.productContainer').append(`<div class="productItem" id="productItem${i}"><span class="qrcode" id="qrcode${i}"></span><span>Code: ${i}</span> </div>`)
+    $('.productContainer').append(`<div class="productItem" id="productItem${i}"><span class="qrcode" id="qrcode${i}"></span><span>Код: ${i}</span> </div>`)
     $(`#productItem${i}`).click(function() {
         basket.push({
             id: i
