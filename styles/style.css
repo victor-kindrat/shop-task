@@ -74,8 +74,16 @@
   border-radius: 5px;
   padding: 5px 10px;
   color: #ffffff;
-  font-family: "Libre Barcode 39 Text", cursive;
-  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+.wrap .productContainer .productItem .qrcode {
+  padding: 5px;
+  background-color: #ffffff;
+}
+.wrap .productContainer .productItem .qrcode img {
+  height: 50px;
+  width: 50px;
 }
 
 .popup {

@@ -3,7 +3,7 @@ let basket = [];
 let countOfElements = 278;
 
 for (let i = 1; i < countOfElements; i++) {
-    $('.productContainer').append(`<div class="productItem" id="productItem${i}"><span>${i}</span></div>`)
+    $('.productContainer').append(`<div class="productItem" id="productItem${i}"><span class="qrcode" id="qrcode${i}"></span><span>Code: ${i}</span> </div>`)
     $(`#productItem${i}`).click(function() {
         basket.push({
             id: i
@@ -12,6 +12,7 @@ for (let i = 1; i < countOfElements; i++) {
         console.log(basket)
     })
 }
+
 
 $('.productItem').css({
     'backgroundImage': 'url(./img/loader.gif)',
@@ -25,6 +26,14 @@ $(document).ready(function() {
             $('#productItem' + i).css({
                 'backgroundImage': `url("./img/${i}${fileExt}")`
             })
+            let qrcode = new QRCode(`qrcode${i}`, {
+                text: `code${i}`,
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff00",
+                correctLevel: QRCode.CorrectLevel.H
+            });
         }, 2000);
     }
 });
