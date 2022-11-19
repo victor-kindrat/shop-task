@@ -7,6 +7,8 @@ JS. Not real project. Just me trying something new 🥲
 - JQuery
 - Usage of preloaders
 - AJAX used
+- Qrcode.js library
+
 ---
 
 #### You can look preview here:
